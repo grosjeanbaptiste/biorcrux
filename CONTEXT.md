@@ -13,7 +13,7 @@ reachable commit, message or tag.
 
 ## Current state
 
-- Version 0.0.6 (tag `v0.0.6`). Dioxus 0.7 pinned in the workspace. Licence: PolyForm
+- Version 0.0.6 (tag `v0.0.6`). Workspace Dioxus dependencies follow the newest stable release. Licence: PolyForm
   Noncommercial 1.0.0 from v0.0.6 on (earlier tags: proprietary notice); see `LICENSE`
   and `CONTRIBUTING.md`.
 - A library, not a framework: blocks are pieces the app calls; nothing imposes structure,
@@ -33,6 +33,7 @@ reachable commit, message or tag.
 
 ## Decisions
 
+- Bioxus is intended to provide a complete multiplatform application library: it owns the coherent facade and integration for shared foundations such as databases, UI components, locales, sync, and design. Maximum modularity is the primary architecture constraint: isolate capabilities into small packages, make facade features opt-in, and keep platform/backend implementations behind ports so apps can compose only what they need. Reuse maintained compatible crates where useful; impose no framework or backend.
 - Every possibility stays open: each block is a feature and a separate package; behaviour
   sits behind ports.
 - Reuse maintained Dioxus crates before writing a block; only what none covers is written here.

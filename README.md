@@ -1,7 +1,12 @@
 # bioxus
 
-Shared crates for Dioxus 0.7 apps: design tokens and stylesheet today, widgets and i18n next.
-Role-named packages under `packages/`,
+Bioxus is a modular library for building complete multiplatform Dioxus
+applications. Its goal is to provide a coherent API for shared foundations such
+as UI components, databases and persistence, locales, sync, design, and charts.
+Maximum modularity is the primary architecture constraint: role-named packages
+under `packages/` and opt-in facade features keep capabilities independently
+selectable, while ports isolate platform and backend implementations. Apps use
+the pieces they need without inheriting a router or backend.
 `make ci-local` runs format, clippy (`-D warnings`) and tests.
 
 ## Use

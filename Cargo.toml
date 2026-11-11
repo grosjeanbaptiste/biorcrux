@@ -11,8 +11,9 @@ authors = ["Baptiste Grosjean <grosjeanbaptiste@outlook.com>"]
 license = "PolyForm-Noncommercial-1.0.0"
 
 [workspace.dependencies]
-# One Dioxus version for every consumer; [app] is migrated 0.6 -> 0.7 first.
-dioxus = { version = "0.7", default-features = false, features = ["html", "macro", "signals", "hooks"] }
+# Follow the newest stable Dioxus release and keep all consumers on that release.
+dioxus = { version = "*", default-features = false, features = ["html", "macro", "signals", "hooks"] }
+dioxus-ssr = "*"
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

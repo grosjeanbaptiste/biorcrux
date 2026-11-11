@@ -11,7 +11,7 @@ dioxus.workspace = true
 bioxus-widgets = { path = "../bioxus-widgets" }
 
 [dev-dependencies]
-dioxus-ssr = "0.7"
+dioxus-ssr.workspace = true
 bioxus-design = { path = "../bioxus-design" }
 
 [lints]

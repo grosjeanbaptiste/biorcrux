@@ -21,7 +21,7 @@ dioxus-sdk-time = { version = "0.7", optional = true }
 
 [dev-dependencies]
 dioxus.workspace = true
-dioxus-ssr = "0.7"
+dioxus-ssr.workspace = true
 
 [features]
 default = ["design", "widgets", "charts", "locale", "locale-json", "viewer3d-ui"]

@@ -17,7 +17,7 @@ default = ["component"]
 component = ["dep:dioxus"]
 
 [dev-dependencies]
-dioxus-ssr = "0.7"
+dioxus-ssr.workspace = true
 
 [lints]
 workspace = true
