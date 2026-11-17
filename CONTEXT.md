@@ -13,7 +13,7 @@ reachable commit, message or tag.
 
 ## Current state
 
-- Version 0.0.8 (tag `v0.0.8`, first tag under the name biorcrux with a green gate; `v0.0.7` was pushed with `make ci-local` red and must not be used; `v0.0.6` and earlier carry the name `bioxus`). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `icons` (lucide-dioxus 3.63), `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10: `icons` fails to compile (E0277 in `renders_an_icon`, verified 2026-11-17), `persist` and `time` are expected to; the `Makefile` gates use an explicit feature list without the three (`FEATURES`). Tag `v0.0.7` was pushed while `make ci-local` was red for that reason (my slip: the heavy wrapper hid make's exit code); the fix is the commit after it. Licence: PolyForm
+- Version 0.0.8 (tag `v0.0.8`, first tag under the name biorcrux with a green gate; `v0.0.7` was pushed with `make ci-local` red and must not be used; `v0.0.6` and earlier carry the former name). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `icons` (lucide-dioxus 3.63), `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10: `icons` fails to compile (E0277 in `renders_an_icon`, verified 2026-11-17), `persist` and `time` are expected to; the `Makefile` gates use an explicit feature list without the three (`FEATURES`). Tag `v0.0.7` was pushed while `make ci-local` was red for that reason (my slip: the heavy wrapper hid make's exit code); the fix is the commit after it. Licence: PolyForm
   Noncommercial 1.0.0 from v0.0.6 on (earlier tags: proprietary notice); see `LICENSE`
   and `CONTRIBUTING.md`.
 - A library, not a framework: blocks are pieces the app calls; nothing imposes structure,
@@ -49,13 +49,13 @@ reachable commit, message or tag.
 
 ## Rename (2026-11-17)
 
-Renamed from `bioxus` to `biorcrux` (owner request): GitHub repository, folder, every package
+The project was renamed to `biorcrux` (owner request): GitHub repository, folder, every package
 (`biorcrux`, `biorcrux-*`, folders under `packages/`), Rust paths (`biorcrux::`,
-`biorcrux_widgets::`), template, scripts and docs. Done by `actautoma rename-family`, the new
-family pass of `actautoma rename-repo` (branch `feat/rename-family` of actautoma, not yet merged).
-Verified: `cargo fmt --check`, clippy `-D warnings` and `cargo test --workspace` pass; no
-`bioxus` left in any tracked file. Not released: apps pinning an old tag keep the name
-`bioxus` until they move to a tag of the new name; the first usable tag under the new name is `v0.0.8`.
+`biorcrux_widgets::`), template, scripts and docs. Done by `actautoma rename-family`, the family
+pass of `actautoma rename-repo`. Verified: `cargo fmt --check`, clippy `-D warnings` and
+`cargo test --workspace` pass; the former name is left in no tracked file. Apps pinning a tag
+before `v0.0.8` still depend on the former crate name until they move to a tag of the new one;
+`v0.0.8` is the first usable tag under the new name.
 
 ## Decisions
 
