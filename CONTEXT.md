@@ -13,7 +13,7 @@ reachable commit, message or tag.
 
 ## Current state
 
-- Version 0.0.7 (tag `v0.0.7`, first tag under the name biorcrux; `v0.0.6` and earlier carry the name `bioxus`). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10 and are unusable until the SDK follows; not tested. Licence: PolyForm
+- Version 0.0.7 (tag `v0.0.7`, first tag under the name biorcrux; `v0.0.6` and earlier carry the name `bioxus`). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `icons` (lucide-dioxus 3.63), `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10: `icons` fails to compile (E0277 in `renders_an_icon`, verified 2026-11-17), `persist` and `time` are expected to; the `Makefile` gates use an explicit feature list without the three (`FEATURES`). Tag `v0.0.7` was pushed while `make ci-local` was red for that reason (my slip: the heavy wrapper hid make's exit code); the fix is the commit after it. Licence: PolyForm
   Noncommercial 1.0.0 from v0.0.6 on (earlier tags: proprietary notice); see `LICENSE`
   and `CONTRIBUTING.md`.
 - A library, not a framework: blocks are pieces the app calls; nothing imposes structure,

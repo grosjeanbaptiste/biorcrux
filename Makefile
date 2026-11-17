@@ -2,6 +2,11 @@
 # Every build/test goes through the heavy queue; without `dotfiles` it fails, naming it.
 HEAVY := $(shell command -v dotfiles >/dev/null 2>&1 && echo "dotfiles heavy run --quick --" || echo "")
 
+# Every feature except `icons`, `persist` and `time`: lucide-dioxus and dioxus-sdk-* are built
+# against Dioxus 0.7 and do not compile with Dioxus `main` (owner, 2026-11-16). Add them back
+# (or use --all-features) once they follow.
+FEATURES := biorcrux/design,biorcrux/widgets,biorcrux/charts,biorcrux/locale,biorcrux/locale-json,biorcrux/store-sqlite,biorcrux/sync,biorcrux/viewer3d-ui,biorcrux-store/indexeddb
+
 .PHONY: need-dotfiles format-check format lint test wasm-check wasm-test ci-local
 
 need-dotfiles:
@@ -14,10 +19,10 @@ format: ## Format every package
 	@cargo fmt --all
 
 lint: need-dotfiles ## clippy, warnings are errors
-	@$(HEAVY) cargo clippy --workspace --all-targets --all-features -- -D warnings
+	@$(HEAVY) cargo clippy --workspace --all-targets --features $(FEATURES) -- -D warnings
 
 test: need-dotfiles ## Test every package
-	@$(HEAVY) cargo test --workspace --all-features
+	@$(HEAVY) cargo test --workspace --features $(FEATURES)
 
 wasm-check: need-dotfiles ## Lint the browser adapter and compile its tests for wasm32
 	@$(HEAVY) cargo clippy -p biorcrux-store --features indexeddb --target wasm32-unknown-unknown --all-targets -- -D warnings

@@ -45,7 +45,7 @@ by git tag.
 - A library, not a framework (owner, 2026-10-31): biorcrux must allow building any app. Blocks are pieces the app calls; no imposed structure, state, route, language or look; no user-facing text baked in (labels are props).
 - No product values baked into behavior: app wording and choices come from props or app-owned catalogs; reusable presets and tunable defaults live in package data assets, separately from Rust behavior. CSS and standalone HTML are data assets. Keep only values required by a protocol, file format, or algorithm in implementation code; document their source.
 - Every app always has an app icon (owner, 2026-10-28): the repo's own, else the BIORCRUX icon (`biorcrux::design::icon`). Regenerate the default icons (512 PNG + 13-file iOS set, RGB no alpha) with `scripts/render-icon.sh`; build a set from any master with `scripts/make-ios-set.sh`.
-- Follow the Dioxus `main` branch until the owner says otherwise (owner, 2026-11-16); declare Dioxus dependencies in the workspace so every crate resolves the same source. Features that need a released Dioxus (`persist`, `time`) are unusable meanwhile.
+- Follow the Dioxus `main` branch until the owner says otherwise (owner, 2026-11-16); declare Dioxus dependencies in the workspace so every crate resolves the same source. Features whose crates need a released Dioxus (`icons`, `persist`, `time`) do not compile meanwhile; `make` gates skip them.
 - Crates stay small; no px units; each public widget has a test.
 
 ## Commands worth knowing
