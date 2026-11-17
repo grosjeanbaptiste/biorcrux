@@ -60,7 +60,7 @@ checksum = "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6"
 
 [[package]]
 name = "biorcrux"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "biorcrux-charts",
  "biorcrux-design",
@@ -78,7 +78,7 @@ dependencies = [
 
 [[package]]
 name = "biorcrux-charts"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "biorcrux-design",
  "biorcrux-widgets",
@@ -88,25 +88,25 @@ dependencies = [
 
 [[package]]
 name = "biorcrux-design"
-version = "0.0.7"
+version = "0.0.8"
 
 [[package]]
 name = "biorcrux-ios"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "toml",
 ]
 
 [[package]]
 name = "biorcrux-locale"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "serde_json",
 ]
 
 [[package]]
 name = "biorcrux-store"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "idb",
  "js-sys",
@@ -117,14 +117,14 @@ dependencies = [
 
 [[package]]
 name = "biorcrux-sync"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "biorcrux-store",
 ]
 
 [[package]]
 name = "biorcrux-viewer3d"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "base64",
  "dioxus 0.8.0-alpha.3",
@@ -134,7 +134,7 @@ dependencies = [
 
 [[package]]
 name = "biorcrux-widgets"
-version = "0.0.7"
+version = "0.0.8"
 dependencies = [
  "biorcrux-design",
  "dioxus 0.8.0-alpha.3",
