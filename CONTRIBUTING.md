@@ -1,6 +1,6 @@
-# Contributing to bioxus
+# Contributing to biorcrux
 
-bioxus is public so that anyone can read it, learn from it and help build it. It is
+biorcrux is public so that anyone can read it, learn from it and help build it. It is
 licensed under the PolyForm Noncommercial License 1.0.0 (see `LICENSE`): free for
 noncommercial use, commercial use needs the written permission of the owner.
 
@@ -9,7 +9,7 @@ noncommercial use, commercial use needs the written permission of the owner.
 1. Open an issue first for anything bigger than a fix, so the direction is agreed.
 2. Follow `CLAUDE.md` (conventions) and run `make ci-local`: format, clippy with
    `-D warnings`, wasm check and tests must pass. Each public widget has a test.
-3. Keep bioxus a library, not a framework: no imposed router, state, language or look;
+3. Keep biorcrux a library, not a framework: no imposed router, state, language or look;
    user-facing text is always a prop.
 
 ## Contributor agreement

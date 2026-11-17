@@ -1,0 +1,13 @@
+[package]
+name = "biorcrux-sync"
+description = "Offline-first sync: hybrid logical clock, last-write-wins, Transport port. Works on any Store."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+biorcrux-store = { path = "../biorcrux-store" }
+
+[lints]
+workspace = true

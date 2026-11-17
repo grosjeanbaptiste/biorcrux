@@ -1,0 +1,50 @@
+[package]
+name = "biorcrux"
+description = "Build blocks for Dioxus apps: one dependency, one module per building block"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+biorcrux-design = { path = "../biorcrux-design", optional = true }
+biorcrux-widgets = { path = "../biorcrux-widgets", optional = true }
+biorcrux-charts = { path = "../biorcrux-charts", optional = true }
+biorcrux-store = { path = "../biorcrux-store", optional = true }
+biorcrux-sync = { path = "../biorcrux-sync", optional = true }
+biorcrux-locale = { path = "../biorcrux-locale", optional = true, default-features = false }
+biorcrux-viewer3d = { path = "../biorcrux-viewer3d", optional = true, default-features = false }
+# Maintained Dioxus 0.7 crates re-exported as they are (owner 2026-10-30: reuse existing libraries).
+lucide-dioxus = { version = "3.63", optional = true, default-features = false }
+dioxus-sdk-storage = { version = "0.7", optional = true }
+dioxus-sdk-time = { version = "0.7", optional = true }
+
+[dev-dependencies]
+dioxus.workspace = true
+dioxus-ssr.workspace = true
+
+[features]
+default = ["design", "widgets", "charts", "locale", "locale-json", "viewer3d-ui"]
+design = ["dep:biorcrux-design"]
+widgets = ["design", "dep:biorcrux-widgets"]
+charts = ["widgets", "dep:biorcrux-charts"]
+locale = ["dep:biorcrux-locale"]
+# Local storage behind the Store port; adapters are opt-in, none is default.
+store = ["dep:biorcrux-store"]
+store-sqlite = ["store", "biorcrux-store/sqlite"]
+# Offline-first sync on any Store (opt-in; brings the store port).
+sync = ["store", "dep:biorcrux-sync"]
+# 3D viewer: `viewer3d` is the page builder alone, `viewer3d-ui` adds the Dioxus component.
+viewer3d = ["dep:biorcrux-viewer3d"]
+viewer3d-ui = ["viewer3d", "design", "biorcrux-viewer3d/component"]
+# Lucide icons (all categories: opt-in, it is ~1700 modules to compile).
+icons = ["dep:lucide-dioxus", "lucide-dioxus/all-icons"]
+# Signals persisted in local/session storage.
+persist = ["dep:dioxus-sdk-storage"]
+# Interval, timeout and debounce hooks.
+time = ["dep:dioxus-sdk-time"]
+# JSON catalogs for biorcrux::locale
+locale-json = ["locale", "biorcrux-locale/json"]
+
+[lints]
+workspace = true

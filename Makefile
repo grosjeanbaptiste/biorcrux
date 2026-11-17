@@ -20,9 +20,9 @@ test: need-dotfiles ## Test every package
 	@$(HEAVY) cargo test --workspace --all-features
 
 wasm-check: need-dotfiles ## Lint the browser adapter and compile its tests for wasm32
-	@$(HEAVY) cargo clippy -p bioxus-store --features indexeddb --target wasm32-unknown-unknown --all-targets -- -D warnings
+	@$(HEAVY) cargo clippy -p biorcrux-store --features indexeddb --target wasm32-unknown-unknown --all-targets -- -D warnings
 
 wasm-test: need-dotfiles ## Run the IndexedDB contract in headless Chrome (needs network for chromedriver)
-	@wasm-pack test --headless --chrome packages/bioxus-store --features indexeddb
+	@wasm-pack test --headless --chrome packages/biorcrux-store --features indexeddb
 
 ci-local: format-check lint wasm-check test ## The CI gates, on this machine

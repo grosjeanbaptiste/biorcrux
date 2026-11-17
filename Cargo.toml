@@ -2,7 +2,7 @@
 resolver = "2"
 members = ["packages/*"]
 # The app template is copied out by scripts/new-app.sh, never built in place.
-exclude = ["template"]
+exclude = ["template", "vendor/dioxus-desktop"]
 
 [workspace.package]
 version = "0.0.6"
@@ -11,9 +11,10 @@ authors = ["Baptiste Grosjean <grosjeanbaptiste@outlook.com>"]
 license = "PolyForm-Noncommercial-1.0.0"
 
 [workspace.dependencies]
-# Follow the newest stable Dioxus release and keep all consumers on that release.
-dioxus = { version = "*", default-features = false, features = ["html", "macro", "signals", "hooks"] }
-dioxus-ssr = "*"
+# Follow Dioxus `main` until the owner says otherwise (2026-11-16). dioxus-sdk-* (features
+# `persist`, `time`) still needs a released Dioxus ^0.7: unusable with this source until it follows.
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", branch = "main", default-features = false, features = ["html", "macro", "signals", "hooks"] }
+dioxus-ssr = { git = "https://github.com/DioxusLabs/dioxus", branch = "main" }
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

@@ -1,6 +1,6 @@
 # __TITLE__
 
-A Dioxus app on [bioxus](https://github.com/grosjeanbaptiste/bioxus): one crate for web, desktop, tablet and phone.
+A Dioxus app on [biorcrux](https://github.com/grosjeanbaptiste/biorcrux): one crate for web, desktop, tablet and phone.
 
 | Run | Command |
 |---|---|
@@ -9,6 +9,6 @@ A Dioxus app on [bioxus](https://github.com/grosjeanbaptiste/bioxus): one crate 
 | iOS / Android | `dx serve --platform ios` / `android` (`--no-default-features --features mobile`) |
 | All gates | `make ci-local` |
 
-The layout follows the screen: bottom bar on phones, rail on tablets, sidebar on desktops (`bioxus::widgets::AppShell`). Pick blocks with the features `store`, `store-sqlite`, `sync`; nothing is imposed.
+The layout follows the screen: bottom bar on phones, rail on tablets, sidebar on desktops (`biorcrux::widgets::AppShell`). Pick blocks with the features `store`, `store-sqlite`, `sync`; nothing is imposed.
 
-Icon: `assets/icon.png` is the BIOXUS icon. Replace it with your own and every platform follows (`build.rs` checks it is a valid PNG). For iOS, build the set with bioxus `scripts/make-ios-set.sh assets/icon.png stores/ios/AppIcon.appiconset`.
+Icon: `assets/icon.png` is the BIORCRUX icon. Replace it with your own and every platform follows (`build.rs` checks it is a valid PNG). For iOS, build the set with biorcrux `scripts/make-ios-set.sh assets/icon.png stores/ios/AppIcon.appiconset`.

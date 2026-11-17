@@ -8,3 +8,10 @@ title = "__TITLE__"
 identifier = "app.__ID__"
 publisher = "__TITLE__"
 icon = ["assets/icon.png"]
+
+# iOS 27 kills an app without the UIKit scene lifecycle at launch; a single
+# scene also avoids tao 0.37's 0x0 view without a manifest (tauri-apps/tao#1362).
+# The app also needs tao >= 0.37 on iOS until dioxus-desktop ships it
+# (DioxusLabs/dioxus#5853, #5893).
+[ios.plist.UIApplicationSceneManifest]
+UIApplicationSupportsMultipleScenes = false

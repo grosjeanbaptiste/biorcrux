@@ -1,0 +1,17 @@
+[package]
+name = "biorcrux-widgets"
+description = "Responsive app shell and reusable Dioxus widgets, renderer-agnostic"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+dioxus.workspace = true
+biorcrux-design = { path = "../biorcrux-design" }
+
+[dev-dependencies]
+dioxus-ssr.workspace = true
+
+[lints]
+workspace = true

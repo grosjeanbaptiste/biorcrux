@@ -1,0 +1,13 @@
+[package]
+name = "biorcrux-ios"
+description = "iOS launch requirements checked from Rust: UIScene manifest and a tao that supports it"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+toml = "0.8"
+
+[lints]
+workspace = true

@@ -1,6 +1,6 @@
 mod app;
 
-/// Desktop gets a window icon (build.rs: ours, else BIOXUS's); web and mobile launch as is.
+/// Desktop gets a window icon (build.rs: ours, else BIORCRUX's); web and mobile launch as is.
 #[cfg(feature = "desktop")]
 fn main() {
     use dioxus::desktop::{icon_from_memory, Config};

@@ -10,20 +10,21 @@ web = ["dioxus/web"]
 desktop = ["dioxus/desktop"]
 mobile = ["dioxus/mobile"]
 # Optional blocks, nothing imposed: local DB and sync.
-store = ["bioxus/store"]
-store-sqlite = ["bioxus/store-sqlite"]
-sync = ["bioxus/sync"]
+store = ["biorcrux/store"]
+store-sqlite = ["biorcrux/store-sqlite"]
+sync = ["biorcrux/sync"]
 
 [dependencies]
-dioxus = { version = "0.7" }
-bioxus = { git = "https://github.com/grosjeanbaptiste/bioxus", tag = "__TAG__" }
+# Same Dioxus source as biorcrux (`main`, owner decision 2026-11-16): two copies would not interoperate.
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", branch = "main" }
+biorcrux = { git = "https://github.com/grosjeanbaptiste/biorcrux", tag = "__TAG__" }
 
 [build-dependencies]
-# Resolves the app icon: the repo's own, else the BIOXUS one.
-bioxus = { git = "https://github.com/grosjeanbaptiste/bioxus", tag = "__TAG__", default-features = false, features = ["design"] }
+# Resolves the app icon: the repo's own, else the BIORCRUX one.
+biorcrux = { git = "https://github.com/grosjeanbaptiste/biorcrux", tag = "__TAG__", default-features = false, features = ["design"] }
 
 [dev-dependencies]
-dioxus-ssr = "0.7"
+dioxus-ssr = { git = "https://github.com/DioxusLabs/dioxus", branch = "main" }
 
 [lints.rust]
 unsafe_code = "forbid"

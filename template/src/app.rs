@@ -1,4 +1,4 @@
-use bioxus::widgets::{AppShell, NavItem, Stat};
+use biorcrux::widgets::{AppShell, NavItem, Stat};
 use dioxus::prelude::*;
 
 #[component]
@@ -9,11 +9,12 @@ pub fn App() -> Element {
         NavItem::new("about", "About").with_icon("ⓘ"),
     ];
     rsx! {
-        style { {bioxus::design::STYLESHEET} }
-        style { {bioxus::widgets::STYLESHEET} }
+        style { {biorcrux::design::STYLESHEET} }
+        style { {biorcrux::widgets::STYLESHEET} }
         AppShell {
             items,
             active: active(),
+            nav_label: "__TITLE__",
             title: "__TITLE__",
             on_select: move |id| active.set(id),
             h1 { "__TITLE__" }
