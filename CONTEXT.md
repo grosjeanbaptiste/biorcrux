@@ -13,7 +13,7 @@ reachable commit, message or tag.
 
 ## Current state
 
-- Version 0.0.6 (tag `v0.0.6`). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10 and are unusable until the SDK follows; not tested. Licence: PolyForm
+- Version 0.0.7 (tag `v0.0.7`, first tag under the name biorcrux; `v0.0.6` and earlier carry the name `bioxus`). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10 and are unusable until the SDK follows; not tested. Licence: PolyForm
   Noncommercial 1.0.0 from v0.0.6 on (earlier tags: proprietary notice); see `LICENSE`
   and `CONTRIBUTING.md`.
 - A library, not a framework: blocks are pieces the app calls; nothing imposes structure,
@@ -55,7 +55,7 @@ Renamed from `bioxus` to `biorcrux` (owner request): GitHub repository, folder, 
 family pass of `actautoma rename-repo` (branch `feat/rename-family` of actautoma, not yet merged).
 Verified: `cargo fmt --check`, clippy `-D warnings` and `cargo test --workspace` pass; no
 `bioxus` left in any tracked file. Not released: apps pinning an old tag keep the name
-`bioxus` until they move to a tag of the new name; the first tag under the new name is not cut.
+`bioxus` until they move to a tag of the new name; the first tag under the new name is `v0.0.7`.
 
 ## Decisions
 
