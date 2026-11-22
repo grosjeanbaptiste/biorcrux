@@ -53,8 +53,8 @@ by git tag.
 | Want | Run |
 |---|---|
 | All gates | `make ci-local` |
-| Test | `dotfiles heavy run --quick -- cargo test --workspace` |
-| Lint | `dotfiles heavy run --quick -- cargo clippy --workspace --all-targets -- -D warnings` |
+| Test | `actqueue run --quick -- cargo test --workspace` |
+| Lint | `actqueue run --quick -- cargo clippy --workspace --all-targets -- -D warnings` |
 
 ## When in doubt
 
