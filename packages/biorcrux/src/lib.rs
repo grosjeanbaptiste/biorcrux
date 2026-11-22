@@ -41,6 +41,38 @@ pub use dioxus_sdk_storage as persist;
 #[cfg(feature = "time")]
 pub use dioxus_sdk_time as time;
 
+/// Dioxus, re-exported so the app needs no direct dependency on it.
+#[cfg(feature = "framework")]
+pub use dioxus;
+
+/// Dioxus server-side rendering, for app tests.
+#[cfg(feature = "ssr")]
+pub use dioxus_ssr as ssr;
+
+/// Logging macros of the launcher, for the app's own logs.
+#[cfg(feature = "launch")]
+pub use tracing;
+
+/// Logs (level from `RUST_LOG`, `info` by default) then launches `app` on the active target.
+#[cfg(feature = "launch")]
+pub fn launch(app: fn() -> dioxus::prelude::Element) {
+    tracing_subscriber::fmt()
+        .with_env_filter(
+            tracing_subscriber::EnvFilter::try_from_default_env()
+                .unwrap_or_else(|_| tracing_subscriber::EnvFilter::new("info")),
+        )
+        .init();
+    dioxus::launch(app);
+}
+
+#[cfg(all(test, feature = "framework"))]
+mod framework_tests {
+    #[test]
+    fn re_exports_dioxus_so_apps_need_no_direct_dependency() {
+        let _: fn() -> super::dioxus::prelude::Element = || super::dioxus::prelude::VNode::empty();
+    }
+}
+
 #[cfg(all(test, feature = "design"))]
 mod tests {
     #[test]

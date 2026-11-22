@@ -14,6 +14,11 @@ biorcrux-store = { path = "../biorcrux-store", optional = true }
 biorcrux-sync = { path = "../biorcrux-sync", optional = true }
 biorcrux-locale = { path = "../biorcrux-locale", optional = true, default-features = false }
 biorcrux-viewer3d = { path = "../biorcrux-viewer3d", optional = true, default-features = false }
+# The framework itself, so an app depends on this crate alone.
+dioxus = { workspace = true, optional = true, features = ["launch", "router"] }
+dioxus-ssr = { workspace = true, optional = true }
+tracing = { version = "0.1", optional = true }
+tracing-subscriber = { version = "0.3", optional = true, features = ["env-filter"] }
 # Maintained Dioxus 0.7 crates re-exported as they are (owner 2026-10-30: reuse existing libraries).
 lucide-dioxus = { version = "3.63", optional = true, default-features = false }
 dioxus-sdk-storage = { version = "0.7", optional = true }
@@ -24,6 +29,15 @@ dioxus.workspace = true
 dioxus-ssr.workspace = true
 
 [features]
+# Dioxus and the target it runs on, re-exported as `biorcrux::dioxus`.
+framework = ["dep:dioxus"]
+web = ["framework", "dioxus/web"]
+desktop = ["framework", "dioxus/desktop"]
+mobile = ["framework", "dioxus/mobile"]
+# Server-side rendering for tests, as `biorcrux::ssr`.
+ssr = ["dep:dioxus-ssr"]
+# `biorcrux::launch`: log setup then Dioxus launch.
+launch = ["framework", "dep:tracing", "dep:tracing-subscriber"]
 default = ["design", "widgets", "charts", "locale", "locale-json", "viewer3d-ui"]
 design = ["dep:biorcrux-design"]
 widgets = ["design", "dep:biorcrux-widgets"]
