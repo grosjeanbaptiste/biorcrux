@@ -1,6 +1,6 @@
 # Gate targets: format-check, lint, test, ci-local.
 # Every build/test goes through the heavy queue; without `dotfiles` it fails, naming it.
-HEAVY := $(shell command -v dotfiles >/dev/null 2>&1 && echo "dotfiles heavy run --quick --" || echo "")
+HEAVY := $(shell command -v actqueue >/dev/null 2>&1 && echo "actqueue run --quick --" || echo "")
 
 # Every feature except `icons`, `persist` and `time`: lucide-dioxus and dioxus-sdk-* are built
 # against Dioxus 0.7 and do not compile with Dioxus `main` (owner, 2026-11-16). Add them back
@@ -10,7 +10,7 @@ FEATURES := biorcrux/design,biorcrux/widgets,biorcrux/charts,biorcrux/locale,bio
 .PHONY: need-dotfiles format-check format lint test wasm-check wasm-test ci-local
 
 need-dotfiles:
-	@command -v dotfiles >/dev/null 2>&1 || { echo "error: 'dotfiles' not found; builds must run through 'dotfiles heavy run'" >&2; exit 1; }
+	@command -v actqueue >/dev/null 2>&1 || { echo "error: 'actqueue' not found; builds must run through 'actqueue run'" >&2; exit 1; }
 
 format-check: ## Check formatting without rewriting anything
 	@cargo fmt --all --check

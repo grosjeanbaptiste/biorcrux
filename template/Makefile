@@ -1,11 +1,11 @@
 # Same target names as biorcrux. Builds go through the heavy queue; without
 # `dotfiles` they fail, naming it.
-HEAVY := $(shell command -v dotfiles >/dev/null 2>&1 && echo "dotfiles heavy run --quick --" || echo "")
+HEAVY := $(shell command -v actqueue >/dev/null 2>&1 && echo "actqueue run --quick --" || echo "")
 
 .PHONY: need-dotfiles format-check format lint test ci-local web desktop
 
 need-dotfiles:
-	@command -v dotfiles >/dev/null 2>&1 || { echo "error: 'dotfiles' not found; builds must run through 'dotfiles heavy run'" >&2; exit 1; }
+	@command -v actqueue >/dev/null 2>&1 || { echo "error: 'actqueue' not found; builds must run through 'actqueue run'" >&2; exit 1; }
 
 format-check:
 	@cargo fmt --all --check
