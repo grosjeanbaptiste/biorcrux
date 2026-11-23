@@ -9,6 +9,10 @@ pub use biorcrux_design as design;
 #[cfg(feature = "widgets")]
 pub use biorcrux_widgets as widgets;
 
+/// Terminal UI: the design tokens as colours, ratatui re-exported.
+#[cfg(feature = "tui")]
+pub use biorcrux_tui as tui;
+
 /// Proportional bar charts.
 #[cfg(feature = "charts")]
 pub use biorcrux_charts as charts;

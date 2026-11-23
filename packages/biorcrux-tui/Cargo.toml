@@ -1,0 +1,14 @@
+[package]
+name = "biorcrux-tui"
+description = "Terminal UI blocks: the design tokens as ratatui colours, and ratatui itself."
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+biorcrux-design = { path = "../biorcrux-design" }
+ratatui = "0.30"
+
+[lints]
+workspace = true

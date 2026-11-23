@@ -12,6 +12,7 @@ biorcrux-widgets = { path = "../biorcrux-widgets", optional = true }
 biorcrux-charts = { path = "../biorcrux-charts", optional = true }
 biorcrux-store = { path = "../biorcrux-store", optional = true }
 biorcrux-sync = { path = "../biorcrux-sync", optional = true }
+biorcrux-tui = { path = "../biorcrux-tui", optional = true }
 biorcrux-locale = { path = "../biorcrux-locale", optional = true, default-features = false }
 biorcrux-viewer3d = { path = "../biorcrux-viewer3d", optional = true, default-features = false }
 # The framework itself, so an app depends on this crate alone.
@@ -43,6 +44,8 @@ design = ["dep:biorcrux-design"]
 widgets = ["design", "dep:biorcrux-widgets"]
 charts = ["widgets", "dep:biorcrux-charts"]
 locale = ["dep:biorcrux-locale"]
+# Terminal UI: design tokens as ratatui colours, `biorcrux::tui::ratatui`.
+tui = ["dep:biorcrux-tui"]
 # Local storage behind the Store port; adapters are opt-in, none is default.
 store = ["dep:biorcrux-store"]
 store-sqlite = ["store", "biorcrux-store/sqlite"]
