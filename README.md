@@ -9,6 +9,16 @@ selectable, while ports isolate platform and backend implementations. Apps use
 the pieces they need without inheriting a router or backend.
 `make ci-local` runs format, clippy (`-D warnings`) and tests.
 
+## Contents
+
+- [Use](#use)
+- [App icon](#app-icon)
+- [New app](#new-app)
+- [Build](#build)
+- [Structure](#structure)
+- [Database](#database)
+- [Licence and contributing](#licence-and-contributing)
+
 ## Use
 
 ```toml
@@ -61,6 +71,7 @@ then `dioxus::desktop::icon_from_memory(include_bytes!(concat!(env!("OUT_DIR"), 
 | `biorcrux-store` | Optional storage behind a `Store` port: memory, SQLite (feature `store-sqlite`), contract tests → `biorcrux::store` |
 | `biorcrux-sync` | Offline-first sync: hybrid logical clock, last-write-wins, `Transport` port (feature `sync`) → `biorcrux::sync` |
 | `biorcrux-design` | Tokens, reset, shared CSS (light and dark) → `biorcrux::design` |
+| `biorcrux-tui` | Terminal UI: the design tokens as ratatui colours (`Palette`), ratatui re-exported (feature `tui`) → `biorcrux::tui` |
 
 ```text
 biorcrux/
@@ -69,17 +80,27 @@ biorcrux/
 ├── scripts/              render-icon.sh, make-ios-set.sh, new-app.sh
 ├── template/             multiplatform app copied by new-app.sh (not a workspace member)
 └── packages/
-    ├── biorcrux/           facade, features: design widgets charts locale locale-json store store-sqlite sync
+    ├── biorcrux/           facade, features: design widgets charts locale locale-json store store-sqlite sync tui framework web desktop mobile ssr launch
     ├── biorcrux-design/    src/{lib,form_factor,icon}.rs, theme.css, themes.css, assets/ (icons)
     ├── biorcrux-widgets/   nav, shell, badge, field, table, dialog, stat, widgets.css
     ├── biorcrux-charts/    scale, bar, charts.css
     ├── biorcrux-locale/    locale, catalog, interpolate, translator
     ├── biorcrux-viewer3d/  component, page.html, viewer3d.css (glTF viewer)
     ├── biorcrux-store/     record, error, memory, sqlite, indexeddb, contract
-    └── biorcrux-sync/      clock, transport, hub, engine
+    ├── biorcrux-sync/      clock, transport, hub, engine
+    └── biorcrux-tui/       Palette read from the design CSS, ratatui re-export
 ```
 
-Dependencies point one way: `widgets` → `design`, `charts` → `widgets`, `sync` → `store`; `locale` and `store` depend on no other package.
+```mermaid
+flowchart LR
+    widgets --> design
+    charts --> widgets
+    sync --> store
+    tui --> design
+    facade["biorcrux (facade)"] --> design & widgets & charts & locale & store & sync & tui & viewer3d
+```
+
+Dependencies point one way: `widgets` → `design`, `charts` → `widgets`, `tui` → `design`, `sync` → `store`; `locale` and `store` depend on no other package.
 
 ## Database
 
