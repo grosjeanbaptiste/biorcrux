@@ -126,7 +126,8 @@ With `sync`, the stamp is a hybrid logical clock: 44 bits of milliseconds, 12 bi
 ## Licence and contributing
 
 Copyright (c) Baptiste Grosjean. Public and open to contributions, under the
-PolyForm Noncommercial License 1.0.0 (`LICENSE`): free for noncommercial use;
-commercial use needs written permission. This is source-available, not OSI open
-source. See `CONTRIBUTING.md` before sending code (sign-off and contributor agreement).
-Releases up to `v0.0.5` were published under an earlier proprietary notice and stay under it.
+Apache License 2.0 (`LICENSE`): open source, commercial use allowed, on condition that
+every redistribution keeps the copyright notice and the `NOTICE` file (attribution).
+See `CONTRIBUTING.md` before sending code (sign-off and contributor agreement).
+Tags `v0.0.6` to `v0.0.8` were published under PolyForm Noncommercial 1.0.0 and `v0.0.5`
+and earlier under a proprietary notice; each stays under the licence it was published with.

@@ -1,8 +1,8 @@
 # Contributing to biorcrux
 
 biorcrux is public so that anyone can read it, learn from it and help build it. It is
-licensed under the PolyForm Noncommercial License 1.0.0 (see `LICENSE`): free for
-noncommercial use, commercial use needs the written permission of the owner.
+licensed under the Apache License 2.0 (see `LICENSE`): commercial use is allowed, with
+attribution (keep the copyright notice and the `NOTICE` file).
 
 ## Before you send code
 
