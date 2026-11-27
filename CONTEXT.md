@@ -13,6 +13,7 @@ reachable commit, message or tag.
 
 ## Current state
 
+- 2026-11-27 (PR #3): `template/AGENTS.md.tmpl` sends builds through `actqueue run -- <command>` instead of `dotfiles heavy run` (no memory cap). Apps already generated from the template keep the old line until their own pull request.
 - Version 0.0.8 (tag `v0.0.8`, first tag under the name biorcrux with a green gate; `v0.0.7` was pushed with `make ci-local` red and must not be used; `v0.0.6` and earlier carry the former name). Workspace Dioxus dependencies follow the Dioxus `main` branch (owner, 2026-11-16; currently 0.8.0-alpha.3, rev in `Cargo.lock`); apps and the template use the same git source. `icons` (lucide-dioxus 3.63), `persist` and `time` (dioxus-sdk-* 0.7, which needs Dioxus ^0.7 even on its own `main`) pull a second Dioxus 0.7.10: `icons` fails to compile (E0277 in `renders_an_icon`, verified 2026-11-17), `persist` and `time` are expected to; the `Makefile` gates use an explicit feature list without the three (`FEATURES`). Tag `v0.0.7` was pushed while `make ci-local` was red for that reason (my slip: the heavy wrapper hid make's exit code); the fix is the commit after it. Licence: Apache-2.0 from 2026-11-25 (owner's decision: commercial use allowed with attribution, `NOTICE`); tags v0.0.6 to v0.0.8 stay PolyForm Noncommercial 1.0.0, earlier tags proprietary; see `LICENSE`
   and `CONTRIBUTING.md`.
 - A library, not a framework: blocks are pieces the app calls; nothing imposes structure,
